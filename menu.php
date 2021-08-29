@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <div class="site-mobile-menu site-navbar-target">
     <div class="site-mobile-menu-header">
       <div class="site-mobile-menu-close mt-3">
@@ -25,9 +28,11 @@
               <li><a href="#services-section" class="nav-link">Card</a></li>
 
               <li><a href="#why-us-section" class="nav-link">History</a></li>
-              <li><a href="#blog-section" class="nav-link">Logout</a></li>
-              <li><a href="#contact-section" class="nav-link"><i class="fa fa-user-circle" aria-hidden="true"></i><span
-                    style="padding-left: 10px;">John Smith</span></a></li>
+              <?php if(isset($_SESSION['fullName'])){echo "<li><a href=\"clear.php\" class=\"nav-link\">Logout</a></li>";} else {echo "<li><a href=\"login.php\" class=\"nav-link\">Login</a></li>";} ?>
+              <?php if(isset($_SESSION['fullName'])){
+                echo "<li><a href=\"index.php\" class=\"nav-link\"><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i><span
+                style=\"padding-left: 10px;\">" . $_SESSION['fullName'] . "</span></a></li>";} else {echo "<li><a href=\"register.php\" class=\"nav-link\">Register</a></li>";}?>
+              
             </ul>
           </nav>
 
@@ -40,10 +45,3 @@
     </div>
 
   </header>
-  <?php
-  require_once('connect_db.php');
-  ['getByID' => $func] = require './customer/customer.php';
-        $customer = $func($conn,1);
-        print_r($customer);
-  require_once('close_db.php');
-  ?>

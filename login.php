@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +15,7 @@
 
 </head>
 <body>
+	<div id="Result"></div>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -24,7 +29,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Your's ID is required">
-						<input class="input100" type="number" name="id" placeholder="Your's ID">
+						<input class="input100" type="number" name="id" placeholder="Your's ID" id="idCustomer">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user-o" aria-hidden="true"></i>
@@ -32,7 +37,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input class="input100" type="password" name="pass" placeholder="Password" id="PasswordCustomer">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -40,7 +45,7 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" onclick="submitLogin()">
 							Login
 						</button>
 					</div>
@@ -55,8 +60,26 @@
 			</div>
 		</div>
 	</div>
-    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
 	<script src="js/main2.js"></script>
+	<script>
+		function submitLogin(){
+			
+		}
+		$(document).ready(function() {
+			//submit login
+			$("#id-form-login").submit(function(event) {
+                event.preventDefault(); //prevent default action 
+                var post_url = $(this).attr("action"); //get form action url
+                $.post("customer/loginOrRegister.php", {
+                    idCustomer: $("#idCustomer").val(),
+                    PasswordCustomer: $("#PasswordCustomer").val()
+                }, function(data) {
+                    $("#Result").html(data);
+                });
+            });
 
+		});
+	</script>
 </body>
 </html>

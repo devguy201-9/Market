@@ -2,7 +2,6 @@
     return [
         'getByID' => function($conn, $id) {
             $query ="SELECT * FROM `customers` WHERE `CustomerID` = $id";
-            echo $query;
             $result = mysqli_query($conn,$query);
             $data = array();
             while($row = mysqli_fetch_array($result)){
@@ -18,4 +17,13 @@
             }
             return true;
         },
+        'getByIDAndPassword' => function($conn, $id,$password) {
+            $query ="SELECT * FROM `customers` WHERE `CustomerID` = $id AND `Password` = \"$password \"";
+            $result = mysqli_query($conn,$query);
+            $data = array();
+            while($row = mysqli_fetch_array($result)){
+                $data[] = $row;
+            }
+            return $data;
+        }
     ];
