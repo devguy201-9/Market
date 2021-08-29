@@ -10,7 +10,7 @@
             return $data;
         },
         'add' => function($conn, $customer) {
-            $query ="INSERT INTO `customers`(`Password`, `Fullname`, `Address`, `City`) VALUES ($customer[0],$customer[1],$customer[2],$customer[3])";
+            $query ="INSERT INTO `customers`(`Password`, `Fullname`, `Address`, `City`) VALUES (\"".$customer[0]."\",\"".$customer[1]."\",\"".$customer[2]."\",\"".$customer[3]."\")";
             $result = mysqli_query($conn,$query);
             if(!$result) {
                 return false;

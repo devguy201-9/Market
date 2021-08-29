@@ -12,10 +12,20 @@
             $_SESSION['fullName']=$customer[0][2];
             echo "<script>window.location.replace((window.location.href).split('/').slice(0, -1).join('/') + '/index.php');</script>";
         } else {
-            echo "<script>alert('sai mat khau');</script>";
+            echo "<script>alert('Không tìm thấy tài khoản');</script>";
         }
-    } else if(isset($_POST["fullName"])) {
-        echo "hello";
+    } else if(isset($_POST["fullNameCustomer"])) {
+        $fullNameCustomer = $_POST["fullNameCustomer"];
+        $passwordCustomer = $_POST["passwordCustomer"];
+        $addressCustomer = $_POST["addressCustomer"];
+        $cityCustomer = $_POST["cityCustomer"];
+        ['add' => $func] = require '../customer/customer.php';
+        $customer = $func($conn,array($passwordCustomer,$fullNameCustomer,$addressCustomer,$cityCustomer));
+        if($customer) {
+            echo "<script>alert('Bạn đã đăng ký tài khoản thành công, vui lòng đăng nhập tài khoản !');window.location.replace((window.location.href).split('/').slice(0, -1).join('/') + '/login.php');</script>";
+        } else {
+            echo "<script>alert('Đã có lỗi xảy ra khi đăng ký tài khoản, vui lòng thử lại !');</script>";
+        }
     }
     require_once('../close_db.php');
     

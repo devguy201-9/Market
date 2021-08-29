@@ -45,15 +45,21 @@ session_start();
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" onclick="submitLogin()">
+						<button class="login100-form-btn">
 							Login
 						</button>
 					</div>
 
 					<div class="text-center p-t-136">
-						<a class="txt2" href="#">
+						<a class="txt2" href="register.php">
 							Create your Account
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+					<div class="text-center">
+						<a class="txt2" href="index.php">
+							Home
+							<i class="fa fa-home m-l-5" aria-hidden="true"></i>
 						</a>
 					</div>
 				</form>
@@ -63,9 +69,6 @@ session_start();
     <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
 	<script src="js/main2.js"></script>
 	<script>
-		function submitLogin(){
-			
-		}
 		$(document).ready(function() {
 			//submit login
 			$("#id-form-login").submit(function(event) {

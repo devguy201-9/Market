@@ -17,14 +17,14 @@ session_start();
 
 
         <div class="site-logo">
-          <a href="index.html" class="text-black"><span class="text-primary">Market online</a>
+          <a href="index.php" class="text-black"><span class="text-primary">Market online</a>
         </div>
 
         <div class="col-12">
           <nav class="site-navigation text-right ml-auto " role="navigation">
 
             <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-              <li><a href="#home-section" class="nav-link">Vegetable</a></li>
+              <li><a href="vegetable/index.php" class="nav-link">Vegetable</a></li>
               <li><a href="#services-section" class="nav-link">Card</a></li>
 
               <li><a href="#why-us-section" class="nav-link">History</a></li>
