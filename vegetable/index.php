@@ -18,6 +18,7 @@ session_start();
 </head>
 
 <body>
+  <div id="Result"></div>
 <div class="site-mobile-menu site-navbar-target">
     <div class="site-mobile-menu-header">
       <div class="site-mobile-menu-close mt-3">
@@ -86,7 +87,7 @@ session_start();
                 <button type="submit" class="btn bg-cart2" id="btnFilter">Filter</button>
             </form>
         </div>
-
+            
         <div style="width: 90%;margin-left: -10%;">
             <h1 style="text-align: center">Vegetable</h1>
             <div class="container d-flex justify-content-center mt-50 mb-50">
@@ -114,7 +115,7 @@ session_start();
                         <h3 class=\"mb-0 font-weight-semibold\">".$price1." VND"."</h3>
                         <div> <i class=\"fa fa-star star\"></i> <i class=\"fa fa-star star\"></i> <i
                                 class=\"fa fa-star star\"></i> <i class=\"fa fa-star star\"></i> </div>
-                        <div class=\"text-muted mb-3\"></div> <button type=\"button\" class=\"btn bg-cart\"><i
+                        <div class=\"text-muted mb-3\"></div> <button type=\"button\" onclick=\"buyProduct(".$vegetables[$i]['VegetableID'].")\" class=\"btn bg-cart\"><i
                                 class=\"fa fa-cart-plus mr-2\"></i>Buy</button>
                     </div>
                 </div>
@@ -126,12 +127,19 @@ session_start();
             </div>
         </div>
     </div>
-
-
+    <form id="id-form-buy" method="POST" action="">
+      <input type="hidden" id="vegetableID" name="vegetableID" value="">
+      <button type="submit" id="btnFormBuy"></button>
+            </form>
+              
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/jquery.sticky.js"></script>
     <script src="../js/main.js"></script>
     <script>
+      function buyProduct(idProduct){
+        $("#vegetableID").val(idProduct);
+        $("#btnFormBuy").click();
+      }
     $("#id-form-filter").submit(function(event) {
         event.preventDefault(); //prevent default action 
         var post_url = $(this).attr("action"); //get form action url
@@ -154,6 +162,16 @@ session_start();
         }
 
     });
+    $("#id-form-buy").submit(function(event) {
+                event.preventDefault(); //prevent default action 
+                var post_url = $(this).attr("action"); //get form action url
+                var value = $("#vegetableID").val();
+                $.post("../cart/cart.php", {
+                  vegetableID: $("#vegetableID").val()
+                }, function(data) {
+                    $("#Result").html(data);
+                });
+            });
     </script>
 </body>
 
