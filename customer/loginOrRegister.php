@@ -12,7 +12,7 @@
             $_SESSION['fullName']=$customer[0][2];
             echo "<script>window.location.replace((window.location.href).split('/').slice(0, -1).join('/') + '/index.php');</script>";
         } else {
-            echo "<script>alert('Không tìm thấy tài khoản');</script>";
+            echo "<script>alert('Không tìm thấy tài khoản !');</script>";
         }
     } else if(isset($_POST["fullNameCustomer"])) {
         $fullNameCustomer = $_POST["fullNameCustomer"];

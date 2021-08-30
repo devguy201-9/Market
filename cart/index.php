@@ -22,6 +22,7 @@ session_start();
     <?php
   include '../menu2.php'
 ?>
+  <div id="Result"></div>
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center">
@@ -91,19 +92,44 @@ session_start();
                             $price = intval($moneyTemp);
                             $money =  number_format($price, 0, '', '.');    
                         }
-                        echo "<h3 class=\"heading-section\">Total price: ".$money." VND</h3><br><button style=\"
+                        if($money != 0) {
+                            echo "<h3 class=\"heading-section\">Total price: ".$money." VND</h3><br><button style=\"
                             background-color: rgb(202, 20, 44) !important;
                             color: #fff !important;
-                        \" type=\"button\" class=\"btn bg-cart\"><i
+                        \" type=\"button\" class=\"btn bg-cart\" onclick=\"order()\"><i
                         class=\"fa fa-cart-plus mr-2\"></i>Order</button>";
+                        } else {
+                            echo "<h3 class=\"heading-section\">Total price: ".$money." VND</h3>";
+                        }
                     ?>
                 </div>
             </div>
         </div>
+        <form id="id-form-order" method="POST" action="">
+            <?php if(isset($_SESSION['customerID'])){
+                echo "<input type=\"hidden\" id=\"idCustomer\" name=\"idCustomer\" value=\"".$_SESSION['customerID']."\">";
+            } else {
+                echo "<input type=\"hidden\" id=\"idCustomer\" name=\"idCustomer\" value=\"\">";
+            } ?>
+      <button type="submit" id="btnOrder"></button>
+            </form>
     </section>
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/jquery.sticky.js"></script>
     <script src="../js/main.js"></script>
 </body>
-
+<script>
+    $("#id-form-order").submit(function(event) {
+        event.preventDefault(); //prevent default action 
+        var post_url = $(this).attr("action"); //get form action url
+        $.post("saveorder.php", {
+            idCustomer: $("#idCustomer").val()
+        }, function(data) {
+            $("#Result").html(data);
+        });
+    });
+    function order(){
+        $("#btnOrder").click();
+    }
+</script>
 </html>
