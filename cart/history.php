@@ -65,7 +65,7 @@ session_start();
                                   <button style=\"
                             background-color: rgb(28, 94, 194) !important;
                             color: #fff !important;
-                        \" type=\"button\" class=\"btn bg-cart\"><a style=\"color: white;\" href=\"orderdetail.php?id=".$orders[$i]['OrderID']."\">Detail</a></button>
+                        \" type=\"button\" class=\"btn bg-cart\"><a style=\"color: white;\" href=\"detail.php?id=".$orders[$i]['OrderID']."\">Detail</a></button>
                               </td>
                                 </tr>	";
                                 }
