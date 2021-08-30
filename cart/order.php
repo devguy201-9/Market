@@ -9,8 +9,8 @@
             }
             return $data;
         },
-        'getOrderDetail' => function($conn, $orderID) {
-            $query ="SELECT * FROM `order` WHERE `OrderID` = $orderID";
+        'getOrderDetail' => function($conn, $orderID, $cusID) {
+            $query ="SELECT * FROM `order` AS Orders INNER JOIN `orderdetail` AS detail ON Orders.OrderID = detail.OrderID INNER JOIN `vegetable` AS vegetable ON detail.VegetableID = vegetable.VegetableID  WHERE Orders.OrderID = $orderID AND Orders.CustomerID = $cusID";
             $result = mysqli_query($conn,$query);
             $data = array();
             while($row = mysqli_fetch_array($result)){

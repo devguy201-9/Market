@@ -21,8 +21,6 @@
                                     data-abc=\"true\">".$vegetables[$i]['VegetableName']."</a> </h6>
                         </div>
                         <h3 class=\"mb-0 font-weight-semibold\">".$price1." VND"."</h3>
-                        <div> <i class=\"fa fa-star star\"></i> <i class=\"fa fa-star star\"></i> <i
-                                class=\"fa fa-star star\"></i> <i class=\"fa fa-star star\"></i> </div>
                         <div class=\"text-muted mb-3\"></div> <button type=\"button\" onclick=\"buyProduct(".$vegetables[$i]['VegetableID'].")\" class=\"btn bg-cart\"><i
                                 class=\"fa fa-cart-plus mr-2\"></i>Buy</button>
                     </div>

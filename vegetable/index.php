@@ -14,55 +14,16 @@ session_start();
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>Market website</title>
 </head>
 
 <body>
   <div id="Result"></div>
-<div class="site-mobile-menu site-navbar-target">
-    <div class="site-mobile-menu-header">
-      <div class="site-mobile-menu-close mt-3">
-        <span class="icon-close2 js-menu-toggle"></span>
-      </div>
-    </div>
-    <div class="site-mobile-menu-body"></div>
-  </div>
-
-  <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
-
-    <div class="container">
-      <div class="row align-items-center position-relative">
-
-
-        <div class="site-logo">
-          <a href="../index.php" class="text-black"><span class="text-primary">Market online</a>
-        </div>
-
-        <div class="col-12">
-          <nav class="site-navigation text-right ml-auto " role="navigation">
-
-            <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-              <li><a href="index.php" class="nav-link">Vegetable</a></li>
-              <li><a href="#services-section" class="nav-link">Card</a></li>
-
-              <li><a href="#why-us-section" class="nav-link">History</a></li>
-              <?php if(isset($_SESSION['fullName'])){echo "<li><a href=\"../clear.php\" class=\"nav-link\">Logout</a></li>";} else {echo "<li><a href=\"../login.php\" class=\"nav-link\">Login</a></li>";} ?>
-              <?php if(isset($_SESSION['fullName'])){
-                echo "<li><a href=\"../index.php\" class=\"nav-link\"><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i><span
-                style=\"padding-left: 10px;\">" . $_SESSION['fullName'] . "</span></a></li>";} else {echo "<li><a href=\"../register.php\" class=\"nav-link\">Register</a></li>";}?>
-              
-            </ul>
-          </nav>
-
-        </div>
-
-        <div class="toggle-button d-inline-block d-lg-none"><a href="#"
-            class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
-
-      </div>
-    </div>
-
-  </header>
+  <?php
+  include '../menu2.php'
+?>
     <div style="display: flex;width: 100%;">
         <div style="width: 15%;margin-top: 10%;margin-left: 20px;">
             <form id="id-form-filter" method="POST" action="">
@@ -113,8 +74,6 @@ session_start();
                                     data-abc=\"true\">".$vegetables[$i]['VegetableName']."</a> </h6>
                         </div>
                         <h3 class=\"mb-0 font-weight-semibold\">".$price1." VND"."</h3>
-                        <div> <i class=\"fa fa-star star\"></i> <i class=\"fa fa-star star\"></i> <i
-                                class=\"fa fa-star star\"></i> <i class=\"fa fa-star star\"></i> </div>
                         <div class=\"text-muted mb-3\"></div> <button type=\"button\" onclick=\"buyProduct(".$vegetables[$i]['VegetableID'].")\" class=\"btn bg-cart\"><i
                                 class=\"fa fa-cart-plus mr-2\"></i>Buy</button>
                     </div>
