@@ -68,8 +68,7 @@ if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on'){
                                     echo "<tr class=\"alert\" role=\"alert\">
                                     <td>".$order[$i]['OrderID']."</td>
                                     <td>
-                                        <div class=\"img\" style=\"background-image: url('https://cdn.britannica.com/89/170689-131-D20F8F0A/Potatoes.jpg');\"></div>
-                                        <!-- <div class=\"img\" style=\"background-image: url(images/product-1.png);\"></div> -->
+                                        <div class=\"img\" style=\"background-image: url('".$order[$i]['Image']."');\"></div>
                                     </td>
                                   <td>
                                       <div class=\"email\">

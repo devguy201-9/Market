@@ -52,8 +52,7 @@ session_start();
                                     $price3 =  number_format($price2, 0, '', '.');                    
                                     echo "<tr class=\"alert\" role=\"alert\">
                                     <td>
-                                        <div class=\"img\" style=\"background-image: url('https://cdn.britannica.com/89/170689-131-D20F8F0A/Potatoes.jpg');\"></div>
-                                        <!-- <div class=\"img\" style=\"background-image: url(images/product-1.png);\"></div> -->
+                                        <div class=\"img\" style=\"background-image: url('".$_SESSION['cart'][$i][5]."');\"></div>
                                     </td>
                                   <td>
                                       <div class=\"email\">
