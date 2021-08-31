@@ -84,14 +84,16 @@
 			$("#id-form-register").submit(function(event) {
                 event.preventDefault(); //prevent default action 
                 var post_url = $(this).attr("action"); //get form action url
-                $.post("customer/loginOrRegister.php", {
-                    fullNameCustomer: $("#fullNameCustomer").val(),
-                    passwordCustomer: $("#passwordCustomer").val(),
-                    addressCustomer: $("#addressCustomer").val(),
-                    cityCustomer: $("#cityCustomer").val()
-                }, function(data) {
-                    $("#Result").html(data);
-                });
+				if ($("#fullNameCustomer").val() && $("#passwordCustomer").val() && $("#addressCustomer").val() && $("#cityCustomer").val()){
+					$.post("customer/loginOrRegister.php", {
+						fullNameCustomer: $("#fullNameCustomer").val(),
+						passwordCustomer: $("#passwordCustomer").val(),
+						addressCustomer: $("#addressCustomer").val(),
+						cityCustomer: $("#cityCustomer").val()
+					}, function(data) {
+						$("#Result").html(data);
+					});
+				}
             });
 
 		});

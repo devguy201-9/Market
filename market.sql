@@ -110,14 +110,14 @@ CREATE TABLE `vegetable` (
 --
 
 INSERT INTO `vegetable` (`VegetableID`, `CategoryID`, `VegetableName`, `Unit`, `Amount`, `Image`, `Price`) VALUES
-(1, 1, 'Tomato', 'kg', 100, 'images/tomato.jpg', 30000),
-(2, 1, 'potato', 'kg', 150, 'images/potato.jpg', 35000),
-(3, 1, 'Apple', 'bag', 50, 'images/apple.jpg', 150000),
-(4, 1, 'Water melon', 'per fruit', 20, 'images/watermelon.jpg', 80000),
-(5, 2, ' broccoli', 'kg', 50, 'images/broccoli.jpg', 35000),
-(6, 2, 'celery', 'kg', 80, 'images/celery.jpg', 40000),
-(7, 3, ' spring onion', 'bunch', 50, 'images/springonion.jpg', 15000),
-(8, 3, 'garlic', 'kg', 30, 'images/garlic.jpg', 120000);
+(1, 1, 'Tomato', 'kg', 100, '../images/tomato.jpg', 30000),
+(2, 1, 'potato', 'kg', 150, '../images/potato.jpg', 35000),
+(3, 1, 'Apple', 'bag', 50, '../images/apple.jpg', 150000),
+(4, 1, 'Water melon', 'per fruit', 20, '../images/watermelon.jpg', 80000),
+(5, 2, ' broccoli', 'kg', 50, '../images/broccoli.jpg', 35000),
+(6, 2, 'celery', 'kg', 80, '../images/celery.jpg', 40000),
+(7, 3, ' spring onion', 'bunch', 50, '../images/springonion.jpg', 15000),
+(8, 3, 'garlic', 'kg', 30, '../images/garlic.jpg', 120000);
 
 --
 -- Chỉ mục cho các bảng đã đổ

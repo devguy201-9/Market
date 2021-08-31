@@ -74,12 +74,14 @@ session_start();
 			$("#id-form-login").submit(function(event) {
                 event.preventDefault(); //prevent default action 
                 var post_url = $(this).attr("action"); //get form action url
-                $.post("customer/loginOrRegister.php", {
-                    idCustomer: $("#idCustomer").val(),
-                    PasswordCustomer: $("#PasswordCustomer").val()
-                }, function(data) {
-                    $("#Result").html(data);
-                });
+				if ($("#idCustomer").val() && $("#PasswordCustomer").val()){
+					$.post("customer/loginOrRegister.php", {
+						idCustomer: $("#idCustomer").val(),
+						PasswordCustomer: $("#PasswordCustomer").val()
+					}, function(data) {
+						$("#Result").html(data);
+					});
+				}
             });
 
 		});

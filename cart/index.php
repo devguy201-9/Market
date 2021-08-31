@@ -111,7 +111,7 @@ session_start();
             } else {
                 echo "<input type=\"hidden\" id=\"idCustomer\" name=\"idCustomer\" value=\"\">";
             } ?>
-      <button type="submit" id="btnOrder"></button>
+      <button type="submit" id="btnOrder" style="display:none;"></button>
             </form>
     </section>
     <script src="../js/jquery-3.3.1.min.js"></script>

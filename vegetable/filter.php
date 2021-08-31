@@ -10,11 +10,11 @@
                 $price1 =  number_format($price, 0, '', '.');
                 $res .= "<div class=\"col-md-4 mt-2\">
                 <div class=\"card\">
-                    <div class=\"card-body\">
+                    <div class=\"card-body\"  style=\"width:350px;height:300px;\">
                         <div class=\"card-img-actions\"> <img
                         src=\"".$vegetables[$i]['Image']."\"
-                                class=\"card-img img-fluid\" width=\"96\" height=\"350\" alt=\"\"> </div>
-                    </div>
+                        class=\"card-img img-fluid\" style=\"width:350px;height:290px;\" alt=\"Không tìm thấy ảnh !\"> </div>
+                        </div>
                     <div class=\"card-body bg-light text-center\">
                         <div class=\"mb-2\">
                             <h6 class=\"font-weight-semibold mb-2\"> <a href=\"#\" class=\"text-default mb-2\"
