@@ -36,11 +36,11 @@ session_start();
                         <table class="table">
                             <thead class="thead-primary">
                                 <tr>
-                                    <th>Image;</th>
+                                    <th>Image</th>
                                     <th>Name</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
-                                    <th>total</th>
+                                    <th>Total</th>
                                 </tr>
                             </thead>
                             <tbody>
